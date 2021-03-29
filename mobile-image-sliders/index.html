@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        bottom: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans", sans-serif;
+      }
+      body {
+        width: 100%;
+      }
+
+      .wrapper {
+        /* max-width: 600px; */
+        width: 100%;
+        height: 184px;
+        padding: 16px;
+        display: flex;
+        overflow-x: scroll;
+        cursor: pointer;
+      }
+
+      .wrapper::-webkit-scrollbar {
+        /* display: none; */
+        width: 0;
+      }
+      .image_slider {
+        display: flex;
+      }
+      .items img {
+        width: 200px;
+        height: 150px;
+        padding: 0 3px 0px 0px;
+        border: none;
+      }
+
+      .image1 img {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        width: 200px;
+        height: 150px;
+        padding: 0 3px 0px 0px;
+        border: none;
+      }
+      .image10 img {
+        width: 200px;
+        height: 150px;
+        padding: 0 3px 0px 0px;
+        border: none;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+      .viewall {
+        width: 200px;
+        height: 150px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .viewall img {
+        transition: all 0.3s;
+        width: 60px;
+      }
+      .viewall img:hover {
+        transform: scale(0.8);
+        transition: all 0.3s;
+      }
+
+      .viewall p {
+        font-size: 0.9rem;
+      }
+      .image-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 16px 0px 16px;
+      }
+      .image-header img {
+        width: 30px;
+        transition: all 0.3s;
+      }
+
+      .image-header img:hover {
+        transform: scale(0.8);
+        transition: all 0.3s;
+      }
+    </style>
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div class="image-header">
+      <h2>Images</h2>
+      <img src="./images/icons.png" alt="" />
+    </div>
+    <div class="wrapper">
+      <div class="image_slider">
+        <div class="items image1"><img src="./images/i1.jpg" alt="img1" /></div>
+        <div class="items image2"><img src="./images/i2.jpg" alt="img2" /></div>
+        <div class="items image3"><img src="./images/i3.jpg" alt="img3" /></div>
+        <div class="items image4"><img src="./images/i4.jpg" alt="img4" /></div>
+        <div class="items image5"><img src="./images/i5.jpg" alt="img5" /></div>
+        <div class="items image6"><img src="./images/i6.jpg" alt="img6" /></div>
+        <div class="items image7"><img src="./images/i7.jpg" alt="img7" /></div>
+        <div class="items image8"><img src="./images/i1.jpg" alt="img8" /></div>
+        <div class="items image9"><img src="./images/i2.jpg" alt="img9" /></div>
+        <div class="items image10">
+          <img src="./images/i3.jpg" alt="img10" />
+        </div>
+        <div class="viewall">
+          <a href=""> <img src="./images/icons.png" alt="" /></a>
+          <p>View all</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const slider = document.getElementsByClassName("items");
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        console.log(e);
+
+        slider.classList.add("active");
+      });
+      slider.addEventListener("mouseleave", () => {
+        isDown = false;
+        slider.classList.add("remove");
+      });
+      slider.addEventListener("mouseup", () => {
+        isDown = false;
+        slider.classList.add("remove");
+      });
+      slider.addEventListener("mousemove", () => {
+        console.log(isDown);
+        console.log("Do work!!!!!!!!!!!!");
+      });
+    </script>
+  </body>
+</html>

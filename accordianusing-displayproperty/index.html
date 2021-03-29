@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .accordian {
+        width: 100%;
+        padding: 15px;
+        text-align: left;
+        background: #e60909;
+        color: #fff;
+        font-size: 25px;
+        transition: 0.2s;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .accordian::after {
+        content: "\25be";
+        float: right;
+      }
+      /* .accordian__button::after {
+        content: "\25be";
+        float: right;
+        transform: scale(1.5);
+        transition: all 0.2s;
+      } */
+
+      /* .accordian__button:active {
+        background: #fff;
+        color:#000;
+      }
+
+      .accordian__button:active:after {
+        content: "\25b4";
+      } */
+
+      .active:hover {
+        background: #000;
+      }
+
+      .active:after {
+        content: "\25b4";
+        float: right;
+      }
+      .pannel {
+        overflow: hidden;
+        /* max-height: 0; */
+        transition: max-height 0.2s;
+        display: none;
+        padding: 0 15px;
+        background: #fff;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="accordian" type="button">Section 1</button>
+    <div class="pannel">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br />
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad<br />
+        minim veniam, quis nostrud exercitation ullamco laboris
+      </p>
+    </div>
+    <button class="accordian" type="button">Section 2</button>
+    <div class="pannel">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br />
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad<br />
+        minim veniam, quis nostrud exercitation ullamco laboris
+      </p>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordian");
+      var i = 0;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+
+          let pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
